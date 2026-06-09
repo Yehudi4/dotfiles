@@ -4,9 +4,9 @@
 }
 
 window {
-    background-color: #00010140;
+    background-color: #07050640;
     border-radius:    10px;
-    border-color:     #316193;
+    border-color:     #8E74A0;
     border:           1px;
     width:            500px;
     padding:          12px;
@@ -25,7 +25,7 @@ inputbar {
 }
 
 prompt {
-    background-color: #316193;
+    background-color: #8E74A0;
     text-color:       #ffffff;
     font:             "JetBrainsMono Nerd Font 14";
     border-radius:    50%;
@@ -34,7 +34,7 @@ prompt {
 }
 
 entry {
-    background-color: #000101;
+    background-color: #070506;
     text-color:        #ffffff;
     placeholder:       "Buscar aplicación...";
     placeholder-color: #888888;
@@ -62,7 +62,7 @@ element {
 }
 
 element selected {
-    background-color: #316193;
+    background-color: #8E74A0;
 }
 
 element-icon {
