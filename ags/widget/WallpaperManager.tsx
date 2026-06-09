@@ -10,7 +10,7 @@ export default function WallpaperManager(gdkmonitor: Gdk.Monitor) {
     let allVideos: string[] = []
     try {
         const out = exec(`ls ${wallpapersDir}`)
-        allVideos = out.split("\n").filter(f => f.endsWith(".mp4") || f.endsWith(".mkv") || f.endsWith(".webm"))
+        allVideos = out.split("\n").filter(f => f.match(/\.(mp4|mkv|webm|jpg|jpeg|png|gif)$/i))
     } catch (e) {
         console.log("No se pudo leer la carpeta")
     }
@@ -194,7 +194,7 @@ export default function WallpaperManager(gdkmonitor: Gdk.Monitor) {
                 const fullPath = `${wallpapersDir}${selected.file}`;
                 
                 // La magia: mpvpaper + ffmpeg foto + pywal + reiniciar waybar
-                const applyCmd = `bash -c 'mkdir -p /tmp/fakebin; ln -sf /usr/bin/true /tmp/fakebin/notify-send; export PATH="/tmp/fakebin:$PATH"; killall -9 mpvpaper; sleep 0.1; nohup mpvpaper -o "loop no-audio" "*" "${fullPath}" >/dev/null 2>&1 & ffmpeg -y -i "${fullPath}" -ss 00:00:05 -vframes 1 /tmp/live_wall_frame.jpg -loglevel quiet; wal -n -q -i /tmp/live_wall_frame.jpg >/dev/null 2>&1; killall waybar; nohup waybar >/dev/null 2>&1 &'`;
+                const applyCmd = `bash /home/yehudi/.config/ags/apply_wallpaper.sh "${fullPath}"`;
                 execAsync(applyCmd).catch(print);
                 win.visible = false; 
             }
@@ -237,7 +237,7 @@ export default function WallpaperManager(gdkmonitor: Gdk.Monitor) {
     searchEntry.connect("activate", () => {
         if (visibleItems.length > 0) {
             const fullPath = `${wallpapersDir}${visibleItems[activeIndex].file}`;
-            const applyCmd = `bash -c 'mkdir -p /tmp/fakebin; ln -sf /usr/bin/true /tmp/fakebin/notify-send; export PATH="/tmp/fakebin:$PATH"; killall -9 mpvpaper; sleep 0.1; nohup mpvpaper -o "loop no-audio" "*" "${fullPath}" >/dev/null 2>&1 & ffmpeg -y -i "${fullPath}" -ss 00:00:05 -vframes 1 /tmp/live_wall_frame.jpg -loglevel quiet; wal -n -q -i /tmp/live_wall_frame.jpg >/dev/null 2>&1; killall waybar; nohup waybar >/dev/null 2>&1 &'`;            
+            const applyCmd = `bash /home/yehudi/.config/ags/apply_wallpaper.sh "${fullPath}"`;            
             execAsync(applyCmd).catch(print);
             win.visible = false; 
         }

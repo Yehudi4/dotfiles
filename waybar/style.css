@@ -1,3 +1,5 @@
+@import "../../.cache/wal/colors-waybar.css";
+
 * {
     font-family: "JetBrainsMono Nerd Font", sans-serif;
     font-size: 13px;
@@ -24,9 +26,15 @@ image {
 
 #custom-media {
     color: #ffffff;
-    padding: 0 0 0 16px;
+    padding: 0 0 0 6px;
     font-size: 12px;
-    opacity: 0.85;
+}
+
+#custom-prev, #custom-play, #custom-next {
+    color: #ffffff;
+    font-size: 14px;
+    padding: 0 8px; /* Esto les da espacio a los lados */
+    margin: 0;
 }
 
 #workspaces {
@@ -45,8 +53,8 @@ image {
 }
 
 #workspaces button.active {
-    color: #000101;
-    background-color: #316193;
+    color: @background;
+    background-color: @color1;
     border-radius: 50%;
     padding: 4px 4px;
     margin: 4px 3px;
@@ -71,7 +79,7 @@ image#firefox, image#steam, image#discord, image#telegram {
     margin: 0 6px;
 }
 
-#custom-notif, #custom-volume, #custom-mic, #custom-bluetooth, #custom-wifi {
+#custom-screenshot, #custom-notif, #custom-volume, #custom-mic, #custom-bluetooth, #custom-wifi {
     font-size: 14px;
     padding: 0 8px;
     margin: 0 3px;
@@ -87,9 +95,14 @@ image#firefox, image#steam, image#discord, image#telegram {
 }
 
 #custom-notif.on, #custom-volume.on, #custom-mic.on, #custom-bluetooth.on, #custom-wifi.on {
-    color: #316193;
+    color: @color1;
 }
 
 #custom-notif.off, #custom-volume.off, #custom-mic.off, #custom-bluetooth.off, #custom-wifi.off {
     color: #ffffff;
+}
+
+#custom-prev:hover, #custom-play:hover, #custom-next:hover, #custom-screenshot:hover, #custom-notif:hover, #custom-volume:hover, #custom-mic:hover, #custom-bluetooth:hover, #custom-wifi:hover {
+    color: @color1;
+    transition: color 0.3s ease-in-out;
 }
