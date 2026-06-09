@@ -1,0 +1,64 @@
+$bg_glass: rgba(20, 20, 30, 0.4); // Más oscuro y transparente para el cristal
+$border_light: rgba(255, 255, 255, 0.12);
+$text_main: #ffffff;
+$text_sub: #a6adc8;
+
+.SidebarWindow {
+    background-color: transparent;
+}
+
+.SidebarContainer {
+    padding: 15px;
+    min-width: 400px;
+}
+
+.panel {
+    background-color: $bg_glass;
+    border-radius: 24px;
+    border: 1px solid $border_light;
+    padding: 20px;
+    margin-bottom: 15px;
+    // Nota: El blur real lo hace Hyprland con 'blurls = ags'
+}
+
+.panel-1 {
+    .avatar {
+        // Truco para imagen circular perfecta sin importar la foto original
+        background-image: url("/home/yehudi/.config/ags/assets/profile.png");
+        background-size: cover;
+        background-position: center;
+        min-width: 64px;
+        min-height: 64px;
+        border-radius: 100%; // Redondo perfecto
+        border: 2px solid $border_light;
+        margin-right: 15px;
+    }
+
+    .username {
+        color: $text_main;
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+
+    .uptime {
+        color: $text_sub;
+        font-size: 0.85rem;
+    }
+
+    .circular-btn {
+        border-radius: 100%;
+        padding: 12px;
+        background-color: rgba(255, 255, 255, 0.05);
+        margin-left: 8px;
+        transition: background 0.2s;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        image {
+            color: $text_main;
+            -gtk-icon-size: 20px;
+        }
+    }
+}

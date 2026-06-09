@@ -1,0 +1,68 @@
+@import url("/home/yehudi/.cache/wal/colors-waybar.css");
+
+* { font-family: "JetBrainsMono Nerd Font", sans-serif; font-weight: bold; }
+
+/* Fondo principal */
+.control-center { background-color: alpha(@color0, 0.45); border-radius: 24px; border: none; }
+
+/* Contenedores Base */
+.widget-volume, .widget-backlight, .widget-buttons-grid, .widget-title {
+    background-color: alpha(@color0, 0.55); border-radius: 16px; margin: 8px 16px; padding: 12px;
+}
+
+/* ===== FILA 1: PERFIL Y ENERGÍA ===== */
+#profile { padding: 8px 12px; }
+
+/* Texto del perfil (Forzamos su tamaño para que no empuje) */
+#profile>flowbox>flowboxchild:nth-child(1)>button { 
+    background: transparent; color: #ffffff; font-size: 13px; text-align: left; box-shadow: none; 
+    min-width: 140px; max-width: 140px; padding: 0; margin-right: 30px;
+}
+#profile>flowbox>flowboxchild:nth-child(1)>button:hover { background: transparent; }
+
+/* Botones de energía (pequeños, redondos y en línea) */
+#profile>flowbox>flowboxchild:nth-child(2)>button,
+#profile>flowbox>flowboxchild:nth-child(3)>button,
+#profile>flowbox>flowboxchild:nth-child(4)>button { 
+    background-color: alpha(@color1, 0.6); color: #ffffff; border-radius: 50%; min-width: 36px; min-height: 36px; padding: 0; font-size: 16px; margin: 4px; transition: all 0.2s ease;
+}
+#profile>flowbox>flowboxchild>button:hover { background-color: @color2; }
+
+/* ===== FILA 2: REDES (WiFi y BT) ===== */
+#networks { padding: 8px 12px; }
+
+/* Botones Principales Redondos (Color Pywal) */
+#networks>flowbox>flowboxchild:nth-child(1)>button, 
+#networks>flowbox>flowboxchild:nth-child(3)>button {
+    background-color: alpha(@color1, 0.8); color: #ffffff; border-radius: 50%; min-width: 44px; min-height: 44px; padding: 0; font-size: 18px; transition: all 0.2s ease; margin: 0;
+}
+/* Separador central entre el grupo WiFi y BT */
+#networks>flowbox>flowboxchild:nth-child(3)>button {
+    margin-left: 40px;
+}
+#networks>flowbox>flowboxchild:nth-child(1)>button:hover,
+#networks>flowbox>flowboxchild:nth-child(3)>button:hover {
+    background-color: @color2;
+}
+
+/* Botones de Flecha Transparentes */
+#networks>flowbox>flowboxchild:nth-child(2)>button,
+#networks>flowbox>flowboxchild:nth-child(4)>button {
+    background: transparent; color: alpha(#ffffff, 0.5); border-radius: 50%; min-width: 32px; min-height: 32px; padding: 0; font-size: 14px; box-shadow: none; margin-left: 4px; transition: all 0.2s ease;
+}
+#networks>flowbox>flowboxchild:nth-child(2)>button:hover,
+#networks>flowbox>flowboxchild:nth-child(4)>button:hover {
+    color: #ffffff; background: alpha(@color2, 0.5);
+}
+
+/* ==== SLIDERS ==== */
+scale trough { background-color: alpha(#ffffff, 0.2); border-radius: 8px; min-height: 6px; }
+scale highlight { background-color: @color2; border-radius: 8px; }
+
+/* ==== NOTIFICACIONES Y SPOTIFY ==== */
+.notification-row { outline: none; }
+.notification { background-color: alpha(@color0, 0.55); border-radius: 16px; margin: 8px 16px; box-shadow: none; }
+.notification-content { background: transparent; }
+.widget-mpris { background-color: alpha(@color0, 0.55); border-radius: 16px; margin: 8px 16px; padding: 12px; }
+.widget-mpris-player { background: transparent; box-shadow: none; }
+.widget-mpris-album-art { border-radius: 12px; }

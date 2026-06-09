@@ -1,0 +1,55 @@
+* {
+    background-color: transparent;
+    text-color:       #ffffff;
+}
+
+window {
+    background-color: rgba(10,10,15,0.85);
+    border-radius:    14px 14px 0px 0px;
+    border-color:     rgba(255,255,255,0.1);
+    border:           1px;
+    width:            1920px;
+    location:         south;
+    anchor:           south;
+    y-offset:         0px;
+}
+
+mainbox {
+    background-color: transparent;
+    children:         [ listview ];
+    padding:          12px;
+}
+
+listview {
+    background-color: transparent;
+    columns:          10;
+    lines:            1;
+    spacing:          8px;
+    scrollbar:        false;
+    layout:           horizontal;
+}
+
+element {
+    background-color: transparent;
+    border-radius:    8px;
+    padding:          6px;
+    orientation:      vertical;
+    children:         [ element-icon, element-text ];
+}
+
+element selected {
+    background-color: rgba(255,255,255,0.1);
+    border-radius:    8px;
+}
+
+element-icon {
+    size:             160px;
+    border-radius:    6px;
+}
+
+element-text {
+    text-color:     rgba(255,255,255,0.7);
+    font:           "JetBrainsMono Nerd Font 11";
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}

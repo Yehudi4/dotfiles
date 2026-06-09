@@ -1,0 +1,42 @@
+{
+    "positionX": "right",
+    "positionY": "top",
+    "control-center-margin-top": 12,
+    "control-center-margin-bottom": 12,
+    "control-center-margin-right": 12,
+    "control-center-width": 380,
+    "fit-to-screen": false,
+
+    "widgets": [
+        "buttons-grid#profile",
+        "buttons-grid#networks",
+        "volume",
+        "backlight",
+        "title",
+        "notifications",
+        "mpris"
+    ],
+
+    "widget-config": {
+        "buttons-grid#profile": {
+            "actions": [
+                { "label": " Yehudi Martínez\nArch Linux", "command": "" },
+                { "label": "⏾", "command": "systemctl suspend" },
+                { "label": "", "command": "systemctl reboot" },
+                { "label": "", "command": "systemctl poweroff" }
+            ]
+        },
+        "buttons-grid#networks": {
+            "actions": [
+                { "label": "", "command": "kitty -e nmtui" },
+                { "label": "", "command": "kitty -e nmtui" },
+                { "label": "", "command": "blueman-manager" },
+                { "label": "", "command": "blueman-manager" }
+            ]
+        },
+        "volume": { "label": " " },
+        "backlight": { "label": "󰃠 " },
+        "title": { "text": "Notificaciones", "clear-all-button": true, "button-text": "Limpiar 󰎟" },
+        "mpris": { "image-size": 96, "image-radius": 12 }
+    }
+}

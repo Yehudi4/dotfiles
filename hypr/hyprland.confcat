@@ -1,0 +1,1 @@
+layerrule = blur on, match:namespace waybar /home/yehudi/.config/waybar/style.css

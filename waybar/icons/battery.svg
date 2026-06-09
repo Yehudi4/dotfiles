@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+  <circle cx="12" cy="12" r="12" fill="BG_COLOR" opacity="0.45" />
+  <g transform="translate(3, 3) scale(0.75)">
+    <path fill="ICON_COLOR" opacity="0.25" d="M16 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3h2v-4h-2V6a2 2 0 0 0-2-2zm0 14H6V6h10v12z"/>
+    <g clip-path="url(#clip)"><path fill="ICON_COLOR" d="M16 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3h2v-4h-2V6a2 2 0 0 0-2-2zm0 14H6V6h10v12z"/></g>
+  </g>
+  <defs>
+    <clipPath id="clip"><rect x="0" y="0" width="FILL_W" height="24" /></clipPath>
+  </defs>
+</svg>

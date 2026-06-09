@@ -1,0 +1,140 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 46,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+
+    "modules-left": [
+        "image#cpu", "custom/cpu",
+        "image#ram", "custom/ram",
+        "image#disco", "custom/disco",
+        "image#temp", "custom/temp",
+        "image#bat", "custom/bat",
+        "custom/media",
+        "custom/prev", "custom/play", "custom/next"
+    ],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": [
+        "clock",
+        "image#firefox",
+        "image#steam",
+        "image#discord",
+        "image#telegram",
+        "custom/sep",
+        "custom/screenshot",
+        "custom/volume",
+        "custom/notif",
+        "custom/mic",
+        "custom/bluetooth",
+        "custom/wifi"
+    ],
+
+    "image#cpu":   { "exec": "python3 ~/.config/waybar/scripts/make_icons.py > /dev/null; echo '/tmp/waybar_icons/cpu.png'", "interval": 3,  "size": 32 },
+    "image#ram":   { "exec": "echo '/tmp/waybar_icons/ram.png'",   "interval": 3,  "size": 32 },
+    "image#disco": { "exec": "echo '/tmp/waybar_icons/disco.png'", "interval": 10, "size": 32 },
+    "image#temp":  { "exec": "echo '/tmp/waybar_icons/temp.png'",  "interval": 3,  "size": 32 },
+    "image#bat":   { "exec": "echo '/tmp/waybar_icons/bat.png'",   "interval": 30, "size": 32 },
+
+    "image#firefox":  { "exec": "echo '/usr/share/icons/hicolor/48x48/apps/firefox.png'",          "on-click": "firefox",          "interval": "once", "size": 22 },
+    "image#steam":    { "exec": "echo '/usr/share/icons/hicolor/48x48/apps/steam.png'",            "on-click": "steam",            "interval": "once", "size": 22 },
+    "image#discord":  { "exec": "echo '/usr/share/icons/hicolor/256x256/apps/discord.png'",            "on-click": "discord",          "interval": "once", "size": 22 },
+    "image#telegram": { "exec": "echo '/usr/share/icons/hicolor/48x48/apps/org.telegram.desktop.png'", "on-click": "telegram-desktop", "interval": "once", "size": 22 },
+
+    "custom/cpu":   { "exec": "grep cpu /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print int(usage)\"%\"}'", "interval": 3,  "return-type": "" },
+    "custom/ram":   { "exec": "free | awk '/Mem:/ {print int($3*100/$2)\"%\"}'", "interval": 3,  "return-type": "" },
+    "custom/disco": { "exec": "df / | awk 'NR==2 {print int($5)\"%\"}'", "interval": 10, "return-type": "" },
+    "custom/temp":  { "exec": "cat /sys/class/thermal/thermal_zone6/temp | awk '{print int($1/1000)\"°\"}'", "interval": 3,  "return-type": "" },
+    "custom/bat":   { "exec": "cat /sys/class/power_supply/BAT0/capacity | awk '{print $1\"%\"}'", "interval": 30, "return-type": "" },
+
+    "custom/media": {
+        "exec": "~/.config/waybar/scripts/media.sh",
+        "interval": 3,
+        "return-type": "",
+        "tooltip": false
+    },
+
+    "custom/prev": {
+        "format": "",
+        "on-click": "playerctl previous",
+        "tooltip": false
+    },
+
+    "custom/play": {
+        "exec": "~/.config/waybar/scripts/playpause.sh",
+        "return-type": "json",
+        "on-click": "playerctl play-pause",
+        "interval": 1,
+        "tooltip": false
+    },
+
+    "custom/next": {
+        "format": "",
+        "on-click": "playerctl next",
+        "tooltip": false
+    },
+
+    "custom/sep": {
+        "format": "|",
+        "tooltip": false        
+    },
+
+    "custom/screenshot": {
+        "format": "",
+        "on-click": "~/.config/waybar/scripts/screenshot.sh", /* Llama a tu script al hacer clic */
+        "tooltip": true,
+        "tooltip-format": "Tomar captura de área..."
+    },
+
+    "custom/volume": {
+        "exec": "~/.config/waybar/scripts/volume.sh",
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "interval": 2,
+        "return-type": "json",
+        "tooltip": false
+    },
+
+    "custom/notif": {
+        "exec": "~/.config/waybar/scripts/toggles.sh notif",
+        "on-click": "dunstctl set-paused toggle",
+        "interval": 2,
+        "return-type": "json",
+        "tooltip": false
+    },
+    "custom/mic": {
+        "exec": "~/.config/waybar/scripts/toggles.sh mic",
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "interval": 2,
+        "return-type": "json",
+        "tooltip": false
+    },
+    "custom/bluetooth": {
+        "exec": "~/.config/waybar/scripts/toggles.sh bluetooth",
+        "on-click": "bluetoothctl show | grep -q 'Powered: yes' && bluetoothctl power off || bluetoothctl power on",
+        "interval": 2,
+        "return-type": "json",
+        "tooltip": false
+    },
+    "custom/wifi": {
+        "exec": "~/.config/waybar/scripts/toggles.sh wifi",
+        "on-click": "nmcli radio wifi | grep -q enabled && nmcli radio wifi off || nmcli radio wifi on",
+        "interval": 2,
+        "return-type": "json",
+        "tooltip": false
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": false,
+        "all-outputs": true,
+        "active-only": false,
+        "on-click": "activate",
+        "format": "{id}"
+    },
+
+    "clock": {
+        "format": "{:%I:%M %p  %A %d %B}",
+        "locale": "es_NI.UTF-8",
+        "tooltip": false
+    }
+}

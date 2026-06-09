@@ -1,0 +1,296 @@
+$bg_panel_base: rgba(0, 0, 0, 0.5); 
+$border_light: rgba(255, 255, 255, 0.15); 
+$text_pure_white: #ffffff; 
+$text_sub: #a6adc8; 
+
+.SidebarWindow { background-color: transparent; }
+
+// --- AQUÍ REDUCIMOS EL ANCHO GLOBAL ---
+.SidebarContainer { 
+    padding: 15px; 
+    min-width: 330px; // Antes era 400px
+}
+
+.panel {
+    background-color: $bg_panel_base;
+    border-radius: 24px;
+    border: 1px solid $border_light;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+// (Estilos de Paneles 1, 2 y 3 intactos)
+.panel-1 {
+    .avatar { margin-right: 15px; border-radius: 999px; border: 2px solid $border_light; }
+    .username { color: $text_pure_white; font-weight: bold; font-size: 1.5rem; }
+    .uptime { color: $text_sub; font-size: 0.85rem; }
+    .circular-btn {
+        border-radius: 100%; padding: 12px; background-color: rgba(255, 255, 255, 0.05); margin-left: 8px; transition: background 0.2s;
+        &:hover { background-color: rgba(255, 255, 255, 0.15); }
+        image { color: $text_pure_white; -gtk-icon-size: 20px; }
+    }
+}
+
+.panel-2 {
+    .comms-row { margin-bottom: 5px; }
+    .comm-box {
+        background-color: rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 8px; border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .comm-icon-btn {
+        background-color: transparent; border-radius: 100%; padding: 10px; margin-right: 8px; transition: all 0.2s ease;
+        image { color: $text_pure_white; -gtk-icon-size: 20px; transition: color 0.2s ease; }
+        &:hover { background-color: rgba(255, 255, 255, 0.1); }
+        &.disabled image { color: rgba(255, 255, 255, 0.25); }
+    }
+    .comm-texts {
+        .comm-title { color: $text_pure_white; font-weight: bold; font-size: 0.95rem; }
+        .comm-subtitle { color: rgba(255, 255, 255, 0.7); font-size: 0.8rem; }
+    }
+    .comm-arrow-btn {
+        background-color: transparent; border-radius: 100%; padding: 5px 12px;
+        label { color: $text_pure_white; font-weight: bold; font-size: 1.2rem; }
+        &:hover { background-color: rgba(255, 255, 255, 0.1); }
+    }
+    .wifi-list {
+        margin-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 10px;
+        .wifi-loading { color: $text_pure_white; font-style: italic; margin: 10px; }
+        .wifi-item {
+            margin-bottom: 5px;
+            .wifi-name-btn { background-color: transparent; color: $text_pure_white; padding: 10px; border-radius: 8px; &:hover { background-color: rgba(255, 255, 255, 0.1); } }
+            .wifi-pass-box {
+                margin: 5px 10px 10px 10px;
+                entry { background-color: rgba(0, 0, 0, 0.4); color: $text_pure_white; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 6px; padding: 5px 10px; min-height: 30px; margin-right: 10px; &:focus { border-color: #ffffff; } }
+                .wifi-connect-btn { background-color: rgba(255, 255, 255, 0.15); color: $text_pure_white; border-radius: 6px; padding: 5px 15px; font-weight: bold; &:hover { background-color: rgba(255, 255, 255, 0.25); } }
+            }
+        }
+    }
+}
+
+.panel-3 {
+    .sliders-row { margin-bottom: 10px; }
+    .slider-label { color: $text_pure_white; font-size: 0.9rem; margin-bottom: 5px; font-weight: bold; }
+    
+    scale {
+        trough {
+            background-color: rgba(255, 255, 255, 0.08); border-radius: 8px; min-height: 8px;
+            highlight { background-color: #ffffff; background-image: none; border-radius: 8px; }
+        }
+        slider { background-color: #ffffff; background-image: none; min-width: 14px; min-height: 14px; border-radius: 100%; box-shadow: 0 0 5px rgba(0,0,0,0.5); margin: -3px; }
+    }
+    
+    .streams-list {
+        margin-top: 5px;
+        .stream-item { margin-top: 10px; .stream-label { color: $text_pure_white; font-size: 0.85rem; margin-bottom: 4px; } }
+    }
+}
+
+// ==========================================
+// ESTILOS DEL PANEL 4 (Notificaciones)
+// ==========================================
+.panel-4 {
+    .notif-header {
+        color: $text_pure_white;
+        font-weight: bold;
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .notif-empty {
+        color: rgba(255, 255, 255, 0.5);
+        font-style: italic;
+        margin-top: 10px;
+    }
+
+    .notif-list {
+        margin-top: 5px;
+
+        .notif-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            .notif-title {
+                color: $text_pure_white;
+                font-weight: bold;
+                font-size: 0.9rem;
+                margin-bottom: 4px;
+            }
+
+            .notif-body {
+                color: rgba(255, 255, 255, 0.8);
+                font-size: 0.8rem;
+            }
+
+            .notif-close-btn {
+                background-color: transparent;
+                color: $text_pure_white;
+                border-radius: 100%;
+                padding: 6px 10px;
+                font-weight: bold;
+                margin-left: 10px;
+                
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.15);
+                }
+            }
+        }
+    }
+}
+// ==========================================
+// ESTILOS DEL GESTOR DE WALLPAPERS
+// ==========================================
+.WallpaperWindow {
+    background-color: transparent; // CRÍTICO: Mata el fondo gris de GTK
+}
+
+.WallpaperContainer {
+    background-color: rgba(10, 10, 15, 0.4); // Oscuro pero muy transparente para el blur
+    padding: 30px;
+
+    .temp-text {
+        color: rgba(255, 255, 255, 0.3);
+        font-style: italic;
+    }
+}
+
+// ZONA 1: Píldora Superior
+.wm-top-pill {
+    background-color: rgba(0, 0, 0, 0.7); // Píldora negra translúcida
+    border-radius: 50px;
+    padding: 8px 24px 8px 8px; // Padding asimétrico para acomodar la pastilla interior
+    margin-top: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    .wm-type-pill {
+        background-color: rgba(100, 90, 110, 0.8); // Color de acento estilo anime
+        border-radius: 50px;
+        padding: 4px 16px;
+        margin-right: 20px;
+        label { color: #ffffff; font-weight: bold; font-size: 0.85rem; }
+    }
+    
+    .wm-counter {
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 0.9rem;
+        margin-right: 20px;
+    }
+
+    .wm-engine {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.9rem;
+        font-weight: bold;
+    }
+}
+
+// ZONA 2 y 3 (Placeholders)
+.wm-preview-box { margin: 20px; }
+
+.wm-carousel-box {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 24px;
+    padding: 20px;
+    margin-bottom: 20px;
+    min-width: 750px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.wm-carousel-scroll {
+    background: transparent;
+}
+
+.wm-carousel-item {
+    background-color: transparent;
+    opacity: 0.35;
+    padding: 10px 0;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
+    
+    // BLOQUEAMOS EL TAMAÑO AQUÍ
+    min-width: 160px;
+    margin: 0;
+    
+    &.active {
+        opacity: 1.0;
+        transform: scale(1.18);
+        
+        .wm-item-preview {
+            border-color: rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+        }
+        
+        .wm-item-label { color: #ffffff; font-weight: bold; }
+    }
+
+    .wm-item-preview {
+        background-color: rgba(255, 255, 255, 0.03);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        min-width: 160px; // Mismo ancho que el item
+        min-height: 90px;
+        margin-bottom: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .wm-item-label {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.8rem;
+    }
+
+    .wm-temp-icon { color: rgba(255, 255, 255, 0.15); font-size: 0.8rem; }
+}
+
+.wm-carousel-scroll scrollbar {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background: transparent;
+}
+
+// ZONA 4: Buscador
+.wm-search-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50px;
+    padding: 10px 25px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    .wm-search-icons {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.85rem;
+        margin: 0 10px;
+        &.accent { color: rgba(255, 255, 255, 0.9); font-weight: bold; }
+    }
+
+    .wm-search-entry {
+        background-color: transparent;
+        color: #ffffff;
+        border: none;
+        box-shadow: none;
+        min-width: 250px;
+        padding: 0 15px;
+        font-size: 0.95rem;
+        caret-color: #ffffff; // Color del cursor de texto
+        
+        &:focus {
+            background-color: transparent;
+            border: none;
+            box-shadow: none;
+        }
+    }
+}
+
+// Estos son los bloques invisibles de los lados
+.wm-pad {
+    min-width: 295px;
+}
+
+// Ocultamos la barra de desplazamiento nativa para mantener el diseño limpio
+.wm-carousel-scroll scrollbar {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background: transparent;
+}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+  <circle cx="12" cy="12" r="12" fill="BG_COLOR" opacity="0.45" />
+  <g transform="translate(3, 3) scale(0.75)">
+    <path fill="ICON_COLOR" opacity="0.25" d="M2 7h2v10H2V7zm18 0h2v10h-2V7zM6 5h12v14H6V5zm2 3h2v2H8V8zm0 4h2v2H8v-2zm0 4h2v2H8v-2zm6-8h2v2h-2V8zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2z"/>
+    <g clip-path="url(#clip)"><path fill="ICON_COLOR" d="M2 7h2v10H2V7zm18 0h2v10h-2V7zM6 5h12v14H6V5zm2 3h2v2H8V8zm0 4h2v2H8v-2zm0 4h2v2H8v-2zm6-8h2v2h-2V8zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2z"/></g>
+  </g>
+  <defs>
+    <clipPath id="clip"><rect x="0" y="0" width="FILL_W" height="24" /></clipPath>
+  </defs>
+</svg>
